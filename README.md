@@ -40,7 +40,7 @@ To implement move up and move up feature I have given buttons and also given the
 
 ## 🚀 Quick start (Vercel)
 
-Deploy this starter with one click on [Vercel](https://www.vercel.com/):
+Deployed this website with [Vercel](https://www.vercel.com/):
 
 ## 🧐 What's inside?
 
