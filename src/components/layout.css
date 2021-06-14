@@ -595,3 +595,15 @@ pre tt:after {
     font-size: 100%;
   }
 }
+.hover-effect:hover{
+  outline: 1px solid;
+}
+.drag-hover{
+  visibility: hidden;
+}
+.hover-effect:hover .drag-hover{
+  visibility: visible;
+}
+.hover-effect{
+  margin-top: 2px;
+}
