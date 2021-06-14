@@ -33,7 +33,7 @@ const IndexPage = () => {
 
   async function fetchRuleData() {
     setDataLoader(true)
-    axios.get(`http://jivoxdevuploads.s3.amazonaws.com/eam-dev/files/44939/Rule%20JSON.json`)
+    axios.get(`https://jivoxdevuploads.s3.amazonaws.com/eam-dev/files/44939/Rule%20JSON.json`)
     .then(res => {
       setTotalItemsData(res.data.data)
       setDataLoader(false)
