@@ -1,11 +1,13 @@
 import React, {useEffect, useState} from "react"
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import Seo from "../components/seo"
+
 import InfiniteScroll from "react-infinite-scroll-component";
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import axios from 'axios'
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-
+// Bootstrap Components
 import Col  from 'react-bootstrap/Col'
 import Row  from 'react-bootstrap/Row'
 import Button from 'react-bootstrap/Button'
@@ -13,16 +15,18 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Tooltip from 'react-bootstrap/Tooltip'
 import Spinner from 'react-bootstrap/Spinner'
 
+// Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClone, faTrash, faGripVertical, faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faClone, faTrash, faGripVertical, 
+  faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 const IndexPage = () => {
 
+  // State Variables
   const grid = 8;
-
   const [dataLoader, setDataLoader] = useState(true)
   const [hasMore, setHasMore] = useState(true)
-  let [items, setItems] = useState([])
+  const [items, setItems] = useState([])
   const [itemBreakPoint, setItemBreakPoint] = useState(100)
   const [totalItems, setTotalItems] = useState(0)
   const [totalItemsData, setTotalItemsData] = useState(0)
@@ -48,11 +52,8 @@ const IndexPage = () => {
   const fetchMoreData = () => {
     setTimeout(() => {
       let tempItems = totalItemsData
-
       if (itemBreakPoint < totalItems){
-
         let temp_array = tempItems.slice(0, itemBreakPoint).concat(tempItems.slice(itemBreakPoint, itemBreakPoint+100))
-        
         setItems(temp_array)
         setItemBreakPoint(itemBreakPoint+100)
       }
@@ -85,7 +86,6 @@ const IndexPage = () => {
       index, 
       index-1
     );
-    
     setItems(tempItems);
   }
 
@@ -95,7 +95,6 @@ const IndexPage = () => {
       index, 
       index+1
     );
-    
     setItems(tempItems);
   }
 
@@ -265,24 +264,27 @@ const IndexPage = () => {
   }
 
   return (
-    <Row style={{backgroundColor: `rgb(18, 24, 44)`, minHeight: '100vh'}} >
-      <Col lg="12" md="12" sm="12" xs="12" className={`text-white px-5`}>
-        <h4 className={`mt-3`} >
-          <span>Jivox: Rule data</span>
-        </h4>
-        <div className={`mb-5`} style={{overflow: 'scroll', borderRadius: '15px', backgroundColor: '#28324e'}}>
-          <div className={`d-flex p-3`}>
-            <div className={`pl-4 align-self-center`} >
-              <p className={`m-0 font-weight-bold`} style={{ color: `#C6CFF4` }}>Id</p>
+    <React.Fragment>
+      <Seo title="Home" />
+      <Row style={{backgroundColor: `rgb(18, 24, 44)`, minHeight: '100vh'}} >
+        <Col lg="12" md="12" sm="12" xs="12" className={`text-white px-5`}>
+          <h4 className={`mt-3`} >
+            <span>Jivox: Rule data</span>
+          </h4>
+          <div className={`mb-5`} style={{overflow: 'scroll', borderRadius: '15px', backgroundColor: '#28324e'}}>
+            <div className={`d-flex p-3`}>
+              <div className={`pl-4 align-self-center`} >
+                <p className={`m-0 font-weight-bold`} style={{ color: `#C6CFF4` }}>Id</p>
+              </div>
+              <div className={`pl-3 ml-auto mr-3 align-self-center`}>
+                <p className={`m-0 font-weight-bold`} style={{ color: `#C6CFF4` }}>Rulename&nbsp; </p>
+              </div>
             </div>
-            <div className={`pl-3 ml-auto mr-3 align-self-center`}>
-              <p className={`m-0 font-weight-bold`} style={{ color: `#C6CFF4` }}>Rulename&nbsp; </p>
-            </div>
+            {loadData()}
           </div>
-          {loadData()}
-        </div>
-      </Col>
-    </Row>
+        </Col>
+      </Row>
+    </React.Fragment>
   );
 }
 

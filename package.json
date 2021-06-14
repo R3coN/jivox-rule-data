@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "jivox-rule-data",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "This website will display a large list of data in a most intuitive way and also highly performant in the browser.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Abhishek Gautam <abhi521993@gmail.com>",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
@@ -42,12 +42,5 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }
